@@ -1,0 +1,25 @@
+name: GitHub Actions Demo
+
+on:
+  push:
+  
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the triggering event
+        run: echo "The job was triggered by ${{ github.event_name }}."
+
+      - name: Print the OS of the runner
+        run: echo "This is running on ${{ runner.os }}."
+
+      - name: Print the branch name
+        run: echo "Branch name is ${{ github.ref }}."
+
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - run: echo "Cloning the ${{ github.repository }} repository."
+
+      - name: List files
+        run: ls ${{ github.workspace }}
